@@ -82,4 +82,10 @@ public class EmployeeController {
         PageResult pageResult = employeeService.page(employeePageQueryDTO);
         return Result.success(pageResult);
     }
+
+    @PostMapping("/status/{status}")
+    public Result<PageResult> page(@PathVariable Integer  status, Long id) {
+        employeeService.startandstop(status, id);
+        return Result.success();
+    }
 }
