@@ -88,4 +88,18 @@ public class EmployeeController {
         employeeService.startandstop(status, id);
         return Result.success();
     }
+
+    @GetMapping("/{id}")
+    public Result<Employee> getEmpById(@PathVariable Long id) {
+        Employee employee = employeeService.getEmpById(id);
+
+        return Result.success(employee);
+    }
+
+    @PutMapping
+    public Result updateEmployeeData(@RequestBody EmployeeDTO employeeDTO) {
+        employeeService.updateEmployeeData(employeeDTO);
+
+        return Result.success();
+    }
 }
